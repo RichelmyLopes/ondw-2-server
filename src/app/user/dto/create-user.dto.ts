@@ -1,17 +1,17 @@
 import { IsNotEmpty, MaxLength, IsEmail } from 'class-validator';
 
 export class CreateUserDto {
-  @IsNotEmpty()
-  @MaxLength(255)
+  @IsNotEmpty({ message: 'Preencha o nome' })
+  @MaxLength(255, { message: 'Tamanho maximo é de 255 caracteres' })
   firstName: string;
-  @MaxLength(255)
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Preencha o sobrenome' })
+  @MaxLength(255, { message: 'Tamanho maximo é de 255 caracteres' })
   lastName: string;
-  @MaxLength(255)
-  @IsNotEmpty()
-  @IsEmail()
+  @IsNotEmpty({ message: 'Preencha o email' })
+  @MaxLength(255, { message: 'Tamanho maximo é de 255 caracteres' })
+  @IsEmail(undefined, { message: 'Informe um e-mail valido' })
   email: string;
-  @IsNotEmpty()
-  @MaxLength(255)
+  @IsNotEmpty({ message: 'Preencha a senha' })
+  @MaxLength(255, { message: 'Tamanho maximo é de 255 caracteres' })
   password: string;
 }
